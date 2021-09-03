@@ -2,6 +2,7 @@ import React, {Component} from "react";
 
 class EventPractice extends Component {
     state = {
+        username: '',
         message: ''
     }
 
@@ -13,13 +14,14 @@ class EventPractice extends Component {
 
     handleChange = (e) => {
         this.setState({
-            message: e.target.value
+            [e.target.name]: e.target.value
         });
     }
 
     handleClick = (e) => {
-        alert(this.state.message);
+        alert(`${this.state.username || 'UNKNOWN USER'} : ${this.state.message || 'BLANK MESSAGE'}`);
         this.setState({
+            username: '',
             message: ''
         });
     }
@@ -28,6 +30,13 @@ class EventPractice extends Component {
         return (
             <div>
                 <h1>Event practice</h1>
+                <input
+                    type='text'
+                    name='username'
+                    placeholder='Username'
+                    value={this.state.username}
+                    onChange={this.handleChange}
+                />
                 <input
                     type='text'
                     name='message'
