@@ -1,62 +1,47 @@
-import React, {Component} from "react";
+import React, {Component, useState} from "react";
 
-class EventPractice extends Component {
-    state = {
-        username: '',
-        message: ''
-    }
+const EventPractice = () => {
+    const [username, setUsername] = useState('');
+    const [message, setMessage] = useState('');
 
-    constructor(props) {
-        super(props);
-        this.handleChange = this.handleChange.bind(this);
-        this.handleClick = this.handleClick.bind(this);
-    }
+    const onChangeUsername = e => setUsername(e.target.value);
+    const onChangeMessage = e => setMessage(e.target.value);
 
-    handleChange = (e) => {
-        this.setState({
-            [e.target.name]: e.target.value
-        });
-    }
+    const onClick = () => {
+        alert(`${username || 'UNKNOWN USER'} : ${message || 'BLANK MESSAGE'}`);
+        setUsername('');
+        setMessage('');
+    };
 
-    handleKeyPress = (e) => {
+    const onKeyPress = e => {
         if (e.key === 'Enter') {
-            this.handleClick();
+            onClick();
         }
-    }
+    };
 
-    handleClick = (e) => {
-        alert(`${this.state.username || 'UNKNOWN USER'} : ${this.state.message || 'BLANK MESSAGE'}`);
-        this.setState({
-            username: '',
-            message: ''
-        });
-    }
-
-    render() {
-        return (
-            <div>
-                <h1>Event practice</h1>
-                <input
-                    type='text'
-                    name='username'
-                    placeholder='Username'
-                    value={this.state.username}
-                    onChange={this.handleChange}
-                />
-                <input
-                    type='text'
-                    name='message'
-                    placeholder='Type something'
-                    value={this.state.message}
-                    onChange={this.handleChange}
-                    onKeyPress={this.handleKeyPress}
-                />
-                <button onClick={this.handleClick}>
-                    Confirm
-                </button>
-            </div>
-        );
-    }
+    return (
+        <div>
+            <h1>Event practice</h1>
+            <input
+                type='text'
+                name='username'
+                placeholder='Username'
+                value={username}
+                onChange={onChangeUsername}
+            />
+            <input
+                type='text'
+                name='message'
+                placeholder='Type something'
+                value={message}
+                onChange={onChangeMessage}
+                onKeyPress={onKeyPress}
+            />
+            <button onClick={onClick}>
+                Confirm
+            </button>
+        </div>
+    );
 }
 
 export default EventPractice;
