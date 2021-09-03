@@ -1,16 +1,27 @@
 import React, {Component, useState} from "react";
 
 const EventPractice = () => {
-    const [username, setUsername] = useState('');
-    const [message, setMessage] = useState('');
+    const [form, setForm] = useState({
+        username: '',
+        message: ''
+    });
 
-    const onChangeUsername = e => setUsername(e.target.value);
-    const onChangeMessage = e => setMessage(e.target.value);
+    const {username, message} = form;
+
+    const onChange = e => {
+        const nextForm = {
+            ...form,
+            [e.target.name]: e.target.value
+        };
+        setForm(nextForm);
+    }
 
     const onClick = () => {
         alert(`${username || 'UNKNOWN USER'} : ${message || 'BLANK MESSAGE'}`);
-        setUsername('');
-        setMessage('');
+        setForm({
+            username: '',
+            message: ''
+        });
     };
 
     const onKeyPress = e => {
@@ -27,14 +38,14 @@ const EventPractice = () => {
                 name='username'
                 placeholder='Username'
                 value={username}
-                onChange={onChangeUsername}
+                onChange={onChange}
             />
             <input
                 type='text'
                 name='message'
                 placeholder='Type something'
                 value={message}
-                onChange={onChangeMessage}
+                onChange={onChange}
                 onKeyPress={onKeyPress}
             />
             <button onClick={onClick}>
