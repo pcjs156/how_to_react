@@ -9,11 +9,23 @@ const Say = () => {
         setMessage('Bye!');
     };
 
+    const [color, setColor] = useState('black');
+
     return (
         <div>
             <button onClick={onClickEnter}>Enter</button>
             <button onClick={onClickLeave}>Leave</button>
-            <h1>{message}</h1>
+            <h1 style={{color: color}}>{message}</h1>
+
+            <button style={{color: 'red'}} onClick={() => setColor('red')}>
+                Red
+            </button>
+            <button style={{color: 'green'}} onClick={() => setColor('green')}>
+                Green
+            </button>
+            <button style={{color: 'blue'}} onClick={() => setColor('blue')}>
+                Blue
+            </button>
         </div>
     );
 };
