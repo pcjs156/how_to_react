@@ -1,14 +1,8 @@
 import './App.css';
+import MyComponent from "./MyComponent";
 
-function App() {
-    const name = 'React';
-
-    return (
-        <>
-            <div className="react">{name}</div>
-            <input />
-        </>
-    );
-}
+const App = () => {
+    return <MyComponent/>
+};
 
 export default App;
