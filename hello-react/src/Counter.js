@@ -15,17 +15,15 @@ class Counter extends Component {
                 <button
                     // Set function that is called when button is clicked with onClick
                     onClick={() => {
-                        this.setState(prevState => {
-                            return {
-                                number: prevState.number + 1
-                            };
-                        });
-
-                        // The code above and the code below do exactly the same thing
-                        // The below code means that function returns object directly
-                        this.setState(prevState => ({
-                            number: prevState.number + 1
-                        }));
+                        this.setState(
+                            {
+                                number: number + 1
+                            },
+                            () => {
+                                console.log('setState is called just now.');
+                                console.log(this.state);
+                            }
+                        );
                     }}
                 >
                     +1
