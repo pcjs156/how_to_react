@@ -1,13 +1,8 @@
 import './App.css';
-import {Fragment} from "react";
 
 function App() {
-    const name = 'React';
-    return (
-        <div>
-            {name === 'React' && <h1>This is React</h1>}
-        </div>
-    );
+    const name = undefined;
+    return <div>{name || 'React'}</div>;
 }
 
 export default App;
