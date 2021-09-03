@@ -1,8 +1,17 @@
 import './App.css';
 
 function App() {
-    const name = undefined;
-    return <div>{name || 'React'}</div>;
+    const name = 'React';
+
+    const style = {
+        backgroundColor: 'black',
+        color: 'aqua',
+        fontSize: '48px',
+        fontWeight: 'bold',
+        padding: 16
+    };
+
+    return <div style={style}>{name}</div>
 }
 
 export default App;
