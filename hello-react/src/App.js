@@ -4,10 +4,15 @@ import {Fragment} from "react";
 function App() {
     const name = 'React';
     return (
-        <>
-            <h1>Hello {name}</h1>
-            <h2>Working?</h2>
-        </>
+        <div>
+            {
+                name === 'React' ? (
+                    <h1>This is React</h1>
+                ) : (
+                    <h2>This is not React</h2>
+                )
+            }
+        </div>
     );
 }
 
