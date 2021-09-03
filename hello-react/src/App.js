@@ -2,11 +2,12 @@ import './App.css';
 import {Fragment} from "react";
 
 function App() {
+    const name = 'React';
     return (
-        <Fragment>
-            <h1>Hello React</h1>
+        <>
+            <h1>Hello {name}</h1>
             <h2>Working?</h2>
-        </Fragment>
+        </>
     );
 }
 
