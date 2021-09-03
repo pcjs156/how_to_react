@@ -18,6 +18,12 @@ class EventPractice extends Component {
         });
     }
 
+    handleKeyPress = (e) => {
+        if (e.key === 'Enter') {
+            this.handleClick();
+        }
+    }
+
     handleClick = (e) => {
         alert(`${this.state.username || 'UNKNOWN USER'} : ${this.state.message || 'BLANK MESSAGE'}`);
         this.setState({
@@ -43,6 +49,7 @@ class EventPractice extends Component {
                     placeholder='Type something'
                     value={this.state.message}
                     onChange={this.handleChange}
+                    onKeyPress={this.handleKeyPress}
                 />
                 <button onClick={this.handleClick}>
                     Confirm
