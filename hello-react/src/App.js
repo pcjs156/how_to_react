@@ -1,11 +1,11 @@
-import {Component} from "react";
+import { Component } from "react";
 import './App.css';
-import IterationSample from './IterationSample'
+import LifeCycleSample from './LifeCycleSample'
 
 class App extends Component {
     render() {
         return (
-            <IterationSample/>
+            <LifeCycleSample />
         );
     }
 };
